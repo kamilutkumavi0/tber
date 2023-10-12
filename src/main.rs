@@ -20,9 +20,9 @@ fn visuals(s: (u16, u16), size: (u16, u16), data: &Vec<String>) -> Vec<String> {
 }
 fn motions(
     (_x, _y, _x_s, _y_s): (u16, u16, u16, u16),
-    data: Vec<String>,
+    data: &Vec<String>,
 ) -> (u16, u16, u16, u16, Vec<String>) {
-    (0, 0, 0, 0, data)
+    (0, 0, 0, 0, data.to_vec())
 }
 
 fn main() {

@@ -67,7 +67,11 @@ impl Window {
 
     pub fn update(self) -> Self {
         //motionlar kontrol edilecek ve visual appten çekilecek
-        let a = make_dict(&self.app_vec, self.size);
+        let mut temp_vec = self.app_vec;
+        for i in 0..temp_vec.len(){
+            temp_vec[i] = temp_vec[i].clone().update();
+        }
+        let a = make_dict(&temp_vec, self.size);
         let temp: Vec<String> = window_framer(self.size, self.visual_line, a);
         Self {
             name: self.name,
@@ -75,7 +79,7 @@ impl Window {
             start: self.start,
             size: self.size,
             visual_line: temp,
-            app_vec: self.app_vec,
+            app_vec: temp_vec,
         } //, visual_line: temp
     }
 
