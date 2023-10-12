@@ -19,9 +19,9 @@ impl Screen {
             interface.push('\n');
         }
         Self {
-            height: height,
-            width: width,
-            interface: interface,
+            height,
+            width,
+            interface,
             window_vec: Vec::new(),
         }
     }
