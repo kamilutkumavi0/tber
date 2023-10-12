@@ -10,7 +10,7 @@ pub struct App{
 
 impl  App {
     pub fn new(start: (u16, u16), size: (u16, u16), app_motions: fn((u16, u16, u16, u16), Vec<String>) -> (u16, u16, u16, u16, Vec<String>), app_userinterface: fn((u16,u16), (u16,u16), &Vec<String>) -> Vec<String>) -> Self{
-        Self {start:start, size:size, curser_loc: (0,0,0,0), visual_data: Vec::new(), app_motions:app_motions, app_userinterface: app_userinterface}
+        Self {start, size, curser_loc: (0,0,0,0), visual_data: Vec::new(), app_motions, app_userinterface}
     }
 
     //pub fn update(){}

@@ -51,18 +51,16 @@ impl Screen {
         for k in 0..self.window_vec.len(){
             for i in 0..self.height {
                 for j in 0..self.width {
-                    if i >= self.window_vec[k].start.1 && i < self.window_vec[k].start.1 + self.window_vec[k].size.1 {
-                        if j >= self.window_vec[k].start.0 && j < self.window_vec[k].start.0 + self.window_vec[k].size.0 {
-                            let a = if i - self.window_vec[k].start.1 < self.window_vec[k].visual_line.len() as u16 {
-                                self.window_vec[k].visual_line[(i - self.window_vec[k].start.1 ) as usize]
-                                    .chars()
-                                    .nth((j - self.window_vec[k].start.0) as usize)
-                                    .unwrap_or(' ')
-                            } else {
-                                ' '
-                            };
-                            map.insert(j + (i) * (self.width + 2), a);
-                        }
+                    if i >= self.window_vec[k].start.1 && i < self.window_vec[k].start.1 + self.window_vec[k].size.1 && j >= self.window_vec[k].start.0 && j < self.window_vec[k].start.0 + self.window_vec[k].size.0 {
+                        let a = if i - self.window_vec[k].start.1 < self.window_vec[k].visual_line.len() as u16 {
+                            self.window_vec[k].visual_line[(i - self.window_vec[k].start.1 ) as usize]
+                                .chars()
+                                .nth((j - self.window_vec[k].start.0) as usize)
+                                .unwrap_or(' ')
+                        } else {
+                            ' '
+                        };
+                        map.insert(j + (i) * (self.width + 2), a);
                     }
                 }
             }

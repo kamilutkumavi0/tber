@@ -13,7 +13,7 @@ fn visuals(s: (u16,u16), size:(u16,u16), data:&Vec<String>) -> Vec<String>{
     }
     data_virtual
 }
-fn motions((x, y, x_s, y_s): (u16, u16, u16, u16), data:Vec<String>) -> (u16, u16, u16, u16, Vec<String>){
+fn motions((_x, _y, _x_s, _y_s): (u16, u16, u16, u16), data:Vec<String>) -> (u16, u16, u16, u16, Vec<String>){
     (0,0,0,0, data)
 }
 
@@ -35,7 +35,7 @@ fn main() {
     let mut text_editor = Window::new("Text Editor".to_string(), Vec::new(), (80,0), (50,8));
     let a = App::new((4,1), (10,5), motions, visuals);
     //let b = App::new((1,1), (1,5),dv2 ,(0,0,0,0), motions);
-    //text_editor = text_editor.add(a);
+    text_editor = text_editor.add(a);
     //text_editor = text_editor.add(b);
     screen = screen.add(text_editor);
 
@@ -46,7 +46,7 @@ fn main() {
     vector.push(String::from("3"));
     vector.push(String::from("4"));
     vector.push(String::from("5"));
-    let mut file_explorer = Window::new("File Explorer".to_string(), Vec::new(), (0,0), (10,10));
+    let file_explorer = Window::new("File Explorer".to_string(), Vec::new(), (0,0), (10,10));
     //let b = App::new((1,1), (1,5),dv2 ,(0,0,0,0), motions);
     //file_explorer = file_explorer.add(b);
     screen = screen.add(file_explorer);

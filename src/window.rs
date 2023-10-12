@@ -38,7 +38,7 @@ fn window_framer(size: (u16, u16), _visual_line: Vec<String>, dict: HashMap<(u16
 
 impl Window{
     pub fn new(name: String, lines: Vec<String>, start: (u16, u16), size: (u16, u16)) -> Self{
-        Self { name: name, lines: lines, start: start, size: size, visual_line: Vec::new(), app_vec: Vec::new()}//
+        Self { name, lines, start, size, visual_line: Vec::new(), app_vec: Vec::new()}//
     }
 
     pub fn add(mut self, app: App) -> Self{
@@ -65,19 +65,11 @@ fn make_dict(app: &Vec<App>, size: (u16, u16)) -> HashMap<(u16, u16), char>{
                         let v = i.visual_data[j as usize - i.start.1 as usize].chars().nth(k as usize - i.start.0 as usize).unwrap();
                         temp.insert((k,j), v);
 
-                    } else {
-                        if temp.get(&(k,j)) == None {
-                            temp.insert((k,j), ' ');
-                        } else {
-    
-                        }
-                    }
-                } else {
-                    if temp.get(&(k,j)) == None {
+                    } else if temp.get(&(k,j)).is_none() {
                         temp.insert((k,j), ' ');
-                    } else {
-
                     }
+                } else if temp.get(&(k,j)).is_none() {
+                    temp.insert((k,j), ' ');
                 }
             }
         }
