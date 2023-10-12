@@ -29,7 +29,20 @@ impl App {
         }
     }
 
-    //pub fn change_data(self, data: Vec<String>){}
+    pub fn change_data(self, data: Vec<String>) -> Self {
+        let visual_data = (self.app_userinterface)((0,0), self.size, &data);
+        Self {
+            start: self.start,
+            size: self.size,
+            curser_loc: self.curser_loc,
+            data,
+            visual_data,
+            app_motions: self.app_motions,
+            app_userinterface: self.app_userinterface,
+        }
+    }
 
-    pub fn update(){}
+    pub fn update(self){
+        
+    }
 }
