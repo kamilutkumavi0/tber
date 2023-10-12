@@ -50,7 +50,7 @@ impl Screen {
         }
     }
 
-    pub fn render(self) {
+    pub fn render(&self) {
         let mut map: HashMap<u16, char> = HashMap::new();
         for k in 0..self.window_vec.len() {
             for i in 0..self.height {

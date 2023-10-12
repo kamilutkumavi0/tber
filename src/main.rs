@@ -57,7 +57,6 @@ fn main() {
     //let b = App::new((1,1), (1,5),dv2 ,(0,0,0,0), motions);
     //file_explorer = file_explorer.add(b);
     screen = screen.add(file_explorer);
-
     screen = screen.update();
     screen.render();
 }
